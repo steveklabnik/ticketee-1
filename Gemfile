@@ -8,11 +8,12 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'sprockets-rails', '~> 2.0.0.rc3'
   gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0.beta1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -36,3 +37,11 @@ gem 'jbuilder', '~> 1.0.1'
 
 # To use debugger
 # gem 'debugger'
+
+group :test, :development do
+  gem 'rspec-rails', "~> 2.12"
+end
+
+group :test do
+  gem 'capybara', "2.0.2"
+end
