@@ -44,4 +44,5 @@ end
 
 group :test do
   gem 'capybara', "2.0.2"
+  gem 'factory_girl', '2.6.4'
 end
