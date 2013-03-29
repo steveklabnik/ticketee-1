@@ -47,4 +47,5 @@ Ticketee::Application.routes.draw do
   #     resources :products
   #   end
   root :to => "projects#index"
+  resources :projects
 end
