@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update_attributes(params[:project])
+    if @project.update(project_params)
       flash[:notice] = 'Project has been updated.'
       redirect_to @project
     else
@@ -38,21 +38,21 @@ class ProjectsController < ApplicationController
       render :action => 'edit'
     end
   end
-
+  
   def destroy
     @project.destroy
     flash[:notice] = 'Project has been deleted.'
     redirect_to projects_path
   end
-
-private
+  
+  private
   def find_project
-    @project = Project.find(param[:id])
-    rescue ActiveRecord::RecordNotFound
+    @project = Project.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'The project you were looking for could not be found.'
     redirect_to projects_path
   end
-
+  
   def project_params
     params.require(:project).permit(:name, :description)
   end
